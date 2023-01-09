@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class DepositCalculator {
     /* название переменных рекомендуется называть в соответствии со смыслом предназначения переменных */
-    double calculateComplexPercent(int amount,double percent, int period) {
+    double calculateComplexPercent(int amount,double percent, int period) { // два метода, логично было бы назвать переменные одинаково
         /* 12 - можно вынести в константу для лучшей читаемости кода,
          чтобы лучше понимать какую функцию она несет. */
         double pay = amount * Math.pow((1 + percent/ 12), 12 *period);
@@ -10,7 +10,7 @@ public class DepositCalculator {
     }
 
     /* нет смысла передавать значение - 2, так как это неизменная константа для формулы в методе rnd*/
-    double calculateSimplePercent(double amount, double yearRate, int depositPeriod) {
+    double calculateSimplePercent(double amount, double yearRate, int depositPeriod) { // два метода, логично было бы назвать переменные одинаково
         return round(amount+amount * yearRate *depositPeriod);
     }
 
@@ -18,7 +18,8 @@ public class DepositCalculator {
         /* Во всех случаях scale не изменим и равен 100,
          ее можно вынести в константу для лучшей читаемости кода,
          чтобы лучше понимать какую функцию она несет. */
-        double scaLe= Math.pow(10);
+        double scaLe= Math.pow(10); /* здесь ошибка!!!, на мой взгляд проще scale сделать константой равной 100,
+         константы: https://javarush.com/groups/posts/1557-konstantih-i-internacionalizacija */
         return Math.round(value*scaLe) /scaLe;
     }
 
@@ -37,7 +38,7 @@ public class DepositCalculator {
         /* название переменной не совсем отражает смысл, рекомендую переимменовать,
          для большей читаемости кода рекомендую перенести объявление переменной
          в начало метода к остальным переменным */
-        double out = 0;
+        double out = 0; // название непонятное...
 
         if (depositType ==1) {
             /* процентную ставку можно вынести в константу для лучшей читаемости кода,
